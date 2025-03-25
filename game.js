@@ -4,8 +4,12 @@ var chosenColorPush = [];
 started = false;
 level = 0;
 
-$(document).keypress(function () {
-  if (!started) {
+$(document).on("click", function (event) {
+  if (
+    !$(event.target).is(".help, .btn, .close-x") &&
+    !started &&
+    !$(".instruction-content").hasClass("instru")
+  ) {
     nextSequence();
     started = true;
   }
@@ -24,6 +28,7 @@ function nextSequence() {
 }
 
 $(".btn").on("click", function () {
+  if (!started) return;
   var ChosenColor = $(this).attr("id");
   chosenColorPush.push(ChosenColor);
   animationPress(ChosenColor);
@@ -67,7 +72,7 @@ function checkAnswer(currentLevel) {
     setTimeout(function () {
       $("body").removeClass("game-over");
     }, 500);
-    $("#level-title").text("Press any key to start");
+    $("#level-title").text("Click anywhere to Start");
   }
 }
 
