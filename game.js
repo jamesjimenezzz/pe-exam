@@ -72,3 +72,13 @@ function checkAnswer(currentLevel) {
 }
 
 console.log(`these are the colors ${arrayColors}`);
+
+$(".modal button").on("click", function () {
+  $(".instruction-content").toggleClass("instru");
+  $(".hero").toggleClass("blur");
+});
+
+$(".close button").on("click", function () {
+  $(".instruction-content").toggleClass("instru");
+  $(".hero").toggleClass("blur");
+});
